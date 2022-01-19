@@ -1,29 +1,32 @@
-package com.method.hw1.run;
+package com.method.hw2.run;
 
-import com.method.hw1.controller.NonStaticSample;
+import com.method.hw2.controller.NonStaticSample;
 
 public class Run {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		NonStaticSample ns = new NonStaticSample();
 		
-		//1. 매개변수X 반환값X
-		System.out.print("1. 랜덤 값 : ");
-		ns.printLottoNumbers();
-		
-		//2. 매개변수O 반환값X
+		System.out.print("- 크기가 5인 배열의 랜덤값 : ");
+		int[] arr = ns.intArrayAllocation(5); // intArrayAllocation(int length)
+		ns.display(arr); //display(int[] arr)
+
 		System.out.println();
-		System.out.print("2. a문자 5개 출력 : ");	
-		ns.outputChar(5, 'a');
+		System.out.print("- 내림차순 출력 : ");
+		ns.sortDescending(arr);
 		
-		//3. 매개변수X 반환값O
-		System.out.print("3. 랜덤 영문자 출력 : ");
-		System.out.println(ns.alphabette());
 		
-		//4. 매개변수O 반환값O
-		System.out.print("4. apple의 2번 4번 인덱스 사이의 값 출력 : ");
-		System.out.println(ns.mySubstring("apple", 2, 4));
+		System.out.println();
+		System.out.print("- 오름차순 출력 : ");
+		ns.sortAscending(arr);
+		
+		
+		System.out.println();
+		System.out.println("\n- apple문자열에 p의 개수 : " + ns.countChar("apple", 'p'));
+		System.out.println("- 13과 7사이 정수들의 합계 : " + ns.totalValue(13, 7));
+		System.out.println("- programming문자열의 3번 인덱스 문자 : " + ns.pCharAt("programming", 3));
+//		System.out.println("- programming문자열의 3번째 문자 : " + ns.pCharAt2("programming", 3));
+		System.out.println("- JAVA와 programming을 합친 문자열 : "  + ns.pConcat("JAVA", "programming"));
 	}
 
 }
