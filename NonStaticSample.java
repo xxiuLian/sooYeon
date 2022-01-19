@@ -1,4 +1,4 @@
-package com.method.hw1.controller;
+package com.method.hw2.controller;
 
 public class NonStaticSample {
 
@@ -6,82 +6,125 @@ public class NonStaticSample {
 		//기본생성자
 	}
 	
-	public void printLottoNumbers() {
+	public int[] intArrayAllocation(int length) {
 		
-		//1.크기가 6인 정수형 배열 선언
-		int[] lotto = new int[6]; //-->크기가 6개란 소리임 인덱스는 012345까지겠지?
+		//1. 길이가 length인 배열 선언
+		int[] arr = new int[length];
 		
-		//2.반복문 통해 랜덤 숫자 출력
-		for(int i = 0; i < lotto.length; i++) {
-			lotto[i] = (int) (Math.random() * 45 + 1);
-			
-			//중복 출력 방지!!!
+		//2. length만큼 반복, 1~100난수 출력
+		for(int i = 0; i < arr.length; i++) {
+			arr[i] = (int)(Math.random() * 100 + 1);
+		}
+		return arr; //arr이 리턴
+	}
+	
+	
+	public void display(int[] arr) {
+		//1. 위에서 전달 받은 배열 출력 
+		for(int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " "); //배열 랜덤값 출력
+		}
+		
+	}
+	
+	
+	public void swap(int[] arr, int idx1, int idx2) {
+		//위에서 한 arr배열의 idx1과 idx2를 교환
+		
+		int temp = arr[idx1];
+		arr[idx1] = arr[idx2];
+		arr[idx2] = temp;
+		
+	}
+	
+	
+	public void sortDescending(int[] arr) {
+		
+		//내림차순
+		for(int i = 0; i < arr.length; i++) {
 			for(int j = 0; j < i; j++) {
-				if(lotto[i] == lotto[j]) {
-					i--;
-					break;
+				if(arr[i] > arr[j]) { //비교주체 > 비교대상
+					swap(arr, i, j);
 				}
 			}
 		}
-		//3.오름차순 정렬
-		for(int i = 0; i < lotto.length; i++) {
+		display(arr); //위에서 배열 랜덤값 출력하는 메소드 + 내림차순
+		
+	}
+	
+	
+	public void sortAscending(int[] arr) {
+		
+		//오름차순
+		for(int i = 0; i < arr.length; i++) {
 			for(int j = 0; j < i; j++) {
-				if(lotto[i] < lotto[j]) {
-				int temp = lotto[i];
-				lotto[i] = lotto[j];
-				lotto[j] = temp;
+				if(arr[i] < arr[j]) { //비교주체 < 비교대상
+					swap(arr, i, j);
 				}
 			}
 		}
-		//4. 랜덤숫자, 중복방지, 오름차순했으니 출력
-		for(int i = 0; i < lotto.length; i++) {
-			System.out.print(lotto[i] + " ");
-		}
-		
+		display(arr);
 	}
 	
-	public void outputChar(int num, char c) {
-		// 매개변수로 전달받은 문자 c를 전달받은 num 갯수 만큼 출력하는 메소드
-		for(int i = 0; i < num; i++) { //num만큼 반복
-			System.out.print(c + " "); //반복되는(num)만큼 c출력
-		}
-		System.out.println();
-	}
 	
-	public char alphabette() {
-		//A~Z : 65 ~ 90
-		//a~z : 97 ~ 122
-
-		//1. 값 결과 받을 변수 선언
-		int num = 0;
+	public int countChar(String str, char c) {
+		//문자열, 문자 하나씩 전달받아 문자열에 포함된 문자의 개수 리턴
 		
-		while(true) { //영어 나올때까지 돌려
-			num = (int)(Math.random() * 58 + 65); //65부터 58개의 랜덤값(=65 ~ 122사이 랜덤값)
+		//1. 문자 개수 담을 결과 변수
+		int count = 0;
+		
+		//2. 문자열 길이만큼 반복
+		for(int i = 0; i < str.length(); i++) {
 			
-			if(num >= 'A' && num <= 'Z' || num >= 'a' && num <= 'z') {
-				break; //조건이 맞다면 while문 빠져나오기
+			//3. 문자열에 문자c와 같은 문자가 있다면 카운트혀
+			if(str.charAt(i) == c) {
+				count++;
 			}
 		}
-		return (char) num;
+		//3번에서 센 문자 개수 리턴
+		return count;
 		
 	}
 	
-	public String mySubstring(String str, int index1, int index2) {
+	
+	public int totalValue(int num1, int num2) {
+		//정수 두개 전달받아 두 수 중 작은 값에서 큰 값 사이 정수들의 합계 리턴
+		//단! 전달받은 두 수는 포함x
 		
-		//1. 문자열이 null인지 확인
-		if(str != null) {//=값이 있다면
-			//2. 결과 담을 문자열 변수
-			String newStr = "";
-			
-			for(int i = index1; i < index2; i++) {
-				newStr += str.charAt(i);
-			}
-			return newStr;
-			
-		}else {//=값이 없다면
-			return null;
+		//리턴할 합계 변수
+		int sum = 0;
+		
+		//1.두 수 중 작은값!(최소값)
+		int min = Math.min(num1, num2);
+		int max = Math.max(num1, num2);
+		
+		//2. 반복문으로 정수들 누적합계 만들기
+		for(int i = min+1; i < max; i++) {
+			sum += i;
 		}
+		return sum;
+		
 	}
+	
+	
+	public char pCharAt(String str, int index) {
+		//전달받은 문자열의 인덱스를 통해 해당 인덱스의 문자 리턴
+		char ch;
+		return ch = str.charAt(index);
+	}
+	
+//	public char pCharAt2(String str, int index) {
+//		//전달받은 문자열의 인덱스를 통해 해당 인덱스의 문자 리턴
+//		char ch;
+//		return ch = str.charAt(index - 1);
+//	}
+//	
+	
+	public String pConcat(String str1, String str2) {
+		//두 개의 문자열 전달받아 하나의 문자열로 합치기
+		return str1 + str2;
+	}
+	
 	
 	
 }
