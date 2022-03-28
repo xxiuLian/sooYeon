@@ -1,0 +1,12 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();//a,b 둘 다 세자리 일때 ex)b: 385
+        System.out.println(a*(b%10));  //a와 b의 일의 자리 수와 곱하기 385 % 10 = 5
+        System.out.println(a*((b%100)/10)); //a와 b의 일의 자리 + 십의 자리 수와 곱하기 결과
+        System.out.println(a*(b/100));
+        System.out.println(a*b);
+    } 
+}
