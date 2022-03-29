@@ -1,0 +1,25 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static void main(String[] args) throws NumberFormatException, IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int x = Integer.parseInt(br.readLine());
+		int y = Integer.parseInt(br.readLine());
+		
+		if(x > 0) {
+			if(y > 0) System.out.println("1");
+			else System.out.println("4");
+		}else {
+			if(y > 0)System.out.println("2");
+			else System.out.println("3");
+		}
+		/* 삼항 연산자 가넝
+		 * 
+		 * System.out.println((x>0 && y>0) ? "1" : (x<0 && y>0) ? "2" : (x<0 && y<0) ? "3" : "4");
+		 * 
+		 */
+		
+	}
