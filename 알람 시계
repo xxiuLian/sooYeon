@@ -13,9 +13,9 @@ public class Main {
 		int M = Integer.parseInt(st.nextToken());//두번째 수 분(minutes)
 		
 		if(M < 45) {
-			H--; //분이 45분 이상이면 시 -1
+			H--; //분이 45분보다 작으면 시 -1
 			M = 60 - (45 - M); 
-			if(H == 0) {
+			if(H < 0) {
 				H = 23;
 			}
 			System.out.println(H + " " + M);
