@@ -1,0 +1,27 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws NumberFormatException, IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String str = br.readLine();//str을 한줄에 받기
+		StringTokenizer st = new StringTokenizer(str," "); //공백을 기준으로 빼기
+		int H = Integer.parseInt(st.nextToken());//첫번째 수 시(hour)
+		int M = Integer.parseInt(st.nextToken());//두번째 수 분(minutes)
+		
+		if(M < 45) {
+			H--; //분이 45분 이상이면 시 -1
+			M = 60 - (45 - M); 
+			if(H == 0) {
+				H = 23;
+			}
+			System.out.println(H + " " + M);
+		}else {
+			System.out.println(H + " " + (M - 45));
+		}
+		
+	}
+}
