@@ -1,0 +1,60 @@
+/*
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws NumberFormatException, IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String str1 = br.readLine();
+		String str2 = br.readLine();
+		
+		StringTokenizer st = new StringTokenizer(str1," "); 
+		
+		int H = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		int C = Integer.parseInt(str2);
+		
+		int share = (M+C) / 60; //시간
+		int rest = (M+C) % 60; //시간으로 넘기고 남은 분
+		
+		if(M+C > 60) { //분과 필요시간(분)을 더해 60이상이 나오면 60으로 나눠준 share와 rest가 들어감
+			if(H == 23) {//근디 시(h)가 23이면 12시(0시)로 변경해야함
+				System.out.println("0" + " " + rest);
+			}else System.out.println((H+share) + " " + rest);
+		}else System.out.println(H + " " + (M+C)); //분이 60보다 작으면 시(h)는 그대로 분은 요리시간과 더해주면 됨
+	}
+}//여기까지 했는데 오류;;;;;;;;;;;왜!!오류?!! 코드 변경해서 재도전
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws NumberFormatException, IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String str1 = br.readLine();
+		String str2 = br.readLine();
+		
+		StringTokenizer st = new StringTokenizer(str1," "); 
+		
+		int H = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		int C = Integer.parseInt(str2);
+		
+		if(M+C >= 60) {
+			H = H + ((M+C)/60);
+			M = (M+C) % 60;
+			if(H >= 24) {
+				H = H - 24; //문제의 구간
+			}
+		}else {
+			M += C;
+		}
+		System.out.printf("%d %d", H, M);
+	}
+}*/
