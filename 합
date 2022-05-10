@@ -1,0 +1,20 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int caseT = Integer.parseInt(br.readLine()); //한 행을 갖는 readLine을 정수형으로 변환
+		int sum = 0; //누적 계산 값을 받을 sum
+		
+		for(int i = 0; i < caseT+1; i++) { //caseT까지 더해야하기 때문에 i<=caseT나 i < caseT+1
+			sum += i; //누적 계산 식(sum = sum +i)
+		}
+		
+		System.out.println(sum);
+		
+	}
+}
