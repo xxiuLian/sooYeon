@@ -1,0 +1,28 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		
+		//1. Scanner대신 BufferedReader사용
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		//2. System.out.println대신 BufferedWriter사용
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		int caseT = Integer.parseInt(br.readLine()); //한 행을 갖는 readLine을 정수형으로 변환
+		
+		StringTokenizer st;
+		
+		for(int i = 0; i < caseT; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			bw.write((Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken())) + "\n");
+			
+		}
+		//여기까지 쓰면 출력안됨
+		bw.flush();
+	}
+}
