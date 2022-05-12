@@ -1,0 +1,34 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		
+		//1. 값을 입력받음
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		//2. 값을 한꺼번에 출력해줌
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		//readLine은 한 행을 기준으로 인식
+		int caseT = Integer.parseInt(br.readLine());
+		//한 행에서 두개의 값을 더해야되기 때문에 공백 기준으로 자르기
+		StringTokenizer st;
+
+		for(int i = 1; i <= caseT; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			//st의 반환 타입은 String int형으로 형변환
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+			
+			//write에 넣기
+			bw.write("Case #"+ i + ": ");
+			bw.write(a + " + " + b + " = ");
+			bw.write(a+b + "\n");
+		}
+		bw.flush();
+	}
+}
