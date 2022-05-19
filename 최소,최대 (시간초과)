@@ -1,0 +1,43 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		//첫째줄 : 정수의 개수
+		int caseN = Integer.parseInt(br.readLine());
+		//둘째줄 : caseN의 수만큼 정수를 받을 수 있음(공백을 기준으로)
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		
+		//둘째줄을 담을 배열 소환! 길이는 caseN만큼 받음
+		int[] stArr = new int[caseN];
+		
+		for(int i = 0; i < caseN; i++) {
+			int caseT = Integer.parseInt(st.nextToken());
+			
+			//caseN수만큼 배열에 둘째줄 수들을 넣어줌
+			stArr[i] = caseT;
+		}
+		
+		//오름차순
+		for(int i = 0; i < stArr.length; i++) {
+			for(int j = 0; j < i; j++) {
+				if(stArr[j] > stArr[i]) {
+					int temp = stArr[j];
+					stArr[j] = stArr[i];
+					stArr[i] = temp;
+				}
+			}
+		}
+		//맨앞(둘째줄의 최소값)과 맨뒤(둘째줄의 최대값)의 수
+		bw.write(stArr[0] + " " + stArr[stArr.length-1]);
+		bw.flush();
+		
+	}
+}
