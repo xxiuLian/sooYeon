@@ -1,0 +1,22 @@
+/*방법 1*/
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashSet;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		HashSet<Integer> H = new HashSet<Integer>();
+		//중복되는 값 없으면 HashSet에 저장되고 true반환, 중복되어 저장되지 않으면 false반환
+		
+		for(int i = 0; i < 10; i++) {
+			H.add(Integer.parseInt(br.readLine()) % 42);
+		}//hashset에 저장 처음에 integer로 타임을 선언했기 때문에 int형 또는 Integer객체를 넣어야 한다.
+		
+		System.out.println(H.size()); //담긴 hashset의 크기반환
+	}
+}
+
+/*방법 2.*/
