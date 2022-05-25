@@ -1,0 +1,40 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
+		//성적 개수
+		int caseT = Integer.parseInt(br.readLine());
+		//공백 기준으로 한 행에 담긴 성적들 추출
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		//추출한 성적 배열에 담을 예정 (나중에 성적 고쳐야해서 double로 선언해줌)
+		double[] arr = new double[caseT];
+		
+		//배열에 담기
+		int i = 0;
+		while(st.hasMoreTokens()) {
+			
+			arr[i] = Integer.parseInt(st.nextToken());
+			i++;
+
+		}
+		//오름차순 정렬(최대값을 뽑기위해)
+		Arrays.sort(arr);
+		
+		double sum = 0; 
+		//수식을 통해 수를 새롭게 만들어야 하기 때문에 double로 더해줌 중요!!!!!
+		
+		for(int j = 0; j < caseT; j++) {
+			
+			sum += arr[j]/arr[arr.length-1]*100;
+			
+		}
+		System.out.println(sum / arr.length);
+
+	}
+}
