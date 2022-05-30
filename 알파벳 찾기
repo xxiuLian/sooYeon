@@ -1,0 +1,43 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException  {
+		
+		//문자열을 받을 S
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String word = br.readLine();
+		
+		//알파벳은 26개, 모두 -1로 초기화
+		int[] alphabet = new int[26];
+		
+		for(int i = 0; i < alphabet.length; i++) {
+			
+			alphabet[i] = -1;
+		}
+		
+		//문자열의 문자하나하나는 ch
+		for(int i = 0; i < word.length(); i++) {
+			char ch = word.charAt(i);
+		
+			//해당 위치를 찾기 위해서 원소 값이 -1인 경우에만 초기화 
+			//기본이 -1이라 문자열의 있는 단어들은 전부 이 로직을 탐
+			//ex)apple
+			//alphabet[97-97] == -1
+			//alphabet[0] == -1      (O)17행에서 다 -1로 넣었기 때문에 if문의 로직을 탐
+			if(alphabet[ch - 'a'] == -1) {
+				
+				alphabet[ch - 'a'] = i;
+			}
+		
+		}
+		//담긴 배열들 출력
+		for(int result : alphabet) {
+			System.out.print(result + " ");
+		}
+
+	}
+}
