@@ -1,0 +1,18 @@
+public class Main {
+	
+	public static void main(String[] args){
+		
+		//BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String caseT = "Spring";
+		
+		char[] spring = new char[caseT.length()];
+		
+		for(int i = caseT.length()-1; i >= 0; i--) {
+			spring[i] = caseT.charAt(i);
+			System.out.print(spring[i]);
+		}
+
+		
+	}
+}
